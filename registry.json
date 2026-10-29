@@ -1,0 +1,43 @@
+{
+  "agents": {
+    "supervisor": {
+      "name": "Supervisor",
+      "description": "Plans which agents or multiple agents to call, validates their results and writes the final answer.",
+      "skills": ["plan", "validate", "retry", "combine_results", "clarify"],
+      "server": null,
+      "model": "gemini-3.5-flash",
+      "temperature": 0.1,
+      "max_output_tokens": 2000
+    },
+
+    "customer_account": {
+      "name": "customer_agent",
+      "description": "Retrieves Customer profile, account details, routing number, account balance and bank details.",
+      "skills": ["customer account retrieval", "customer detail retrieval", "bank details retrieval"],
+      "server": "http://127.0.0.1:8001/mcp",
+      "model": "gemini-3.5-flash",
+      "temperature": 0.2,
+      "max_output_tokens": 2000
+    },
+
+    "transactions": {
+      "name": "transaction_agent",
+      "description": "Retrieves and analyses Checking account money in, money out and spending by category or date. No credit card transactions.",
+      "skills": ["transaction details in accounts", "spending comparission"],
+      "server": "http://127.0.0.1:8002/mcp",
+      "model": "gemini-3.5-flash",
+      "temperature": 0.2,
+      "max_output_tokens": 2000
+    },
+
+    "credit_card": {
+      "name": "credit_agent",
+      "description": "Retrieves Card limit, balance, available credit, APR.",
+      "skills": ["card_limit", "card_balance", "available_credit", "apr", "card_status", "statement", "payment_status"],
+      "server": "http://127.0.0.1:8000/mcp",
+      "model": "gemini-3.5-flash",
+      "temperature": 0.2,
+      "max_output_tokens": 2000
+    }
+  }
+}

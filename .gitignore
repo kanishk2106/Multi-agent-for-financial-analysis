@@ -1,0 +1,16 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Generated database (rebuild with: python seed_db.py)
+bank.db
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
